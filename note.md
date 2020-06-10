@@ -91,3 +91,58 @@ body {
 
 
 
+
+
+
+
+formatter: function() {
+        return 'We have ' + this.y + ' ' + this.point.options.category + 's'
+    }
+
+
+
+#2a2a2b
+
+
+
+
+{ y: 296, z: 1993-1998},
+            { y: 315, z: 1997-2005},
+            { y: 355, z: 2004-2012},
+            { y: 395, z: 2011-2019},
+            { y: 379, z: 2019-present},
+
+
+
+            { y: 130, z: 1963-1973},
+            { y: 282, z: 1973-1989},
+            { y: 247, z: 1988-1994},
+            { y: 296, z: 1993-1998},
+            { y: 315, z: 1997-2005},
+            { y: 355, z: 2004-2012},
+            { y: 395, z: 2011-2019},
+            { y: 379, z: 2019-present},
+        ]
+
+
+
+shared: true,
+        headerFormat:'<span style="font-size: 12px"> <b>{point.key}</span><br/>',
+        valueSuffix: ' hp'
+
+
+
+
+textTransform: 'uppercase',
+
+
+
+
+height: 100%;
+  width: 69.9%;
+  
+  bottom: 0px;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  overflow-x: hidden;
+  padding-top: 0px;

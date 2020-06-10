@@ -2,29 +2,25 @@ Highcharts.theme = {
     colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
         '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
     chart: {
-        backgroundColor: {
-            linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-            stops: [
-                [0, '#2a2a2b'],
-                [1, '#3e3e40']
-            ]
-        },
+        backgroundColor: 'black',
         style: {
             fontFamily: '\'Unica One\', sans-serif'
         },
         plotBorderColor: '#606063'
     },
     title: {
+
+        align: 'center',
         style: {
-            color: '#E0E0E3',
             textTransform: 'uppercase',
-            fontSize: '20px'
+            color: '#FAC500',
+            fontSize: '14px'
         }
     },
     subtitle: {
         style: {
-            color: '#E0E0E3',
-            textTransform: 'uppercase'
+            color: '#FAC500',
+            fontSize: '11px'
         }
     },
     xAxis: {
@@ -39,6 +35,7 @@ Highcharts.theme = {
         tickColor: '#707073',
         title: {
             style: {
+                fontSize: '14px',
                 color: '#A0A0A3'
 
             }
@@ -57,6 +54,7 @@ Highcharts.theme = {
         tickWidth: 1,
         title: {
             style: {
+                fontSize: '12px',
                 color: '#A0A0A3'
             }
         }
@@ -202,18 +200,28 @@ Highcharts.setOptions(Highcharts.theme);
 
 
 
+
+
+
+
+
 Highcharts.chart('horsepower', {
     credits: {
         enabled: false
     },
-    
+
+    legend: {
+        enabled: false
+    },
+
     chart: {
+        height: 200,
         type: 'line',
         plotBorderWidth: null,
         plotShadow: false,
     },
     title: {
-        text: 'Horsepower by Generations'
+        text: 'Horsepower by Generation'
     },
     subtitle: {
         text: ''
@@ -237,12 +245,206 @@ Highcharts.chart('horsepower', {
             enableMouseTracking: true
         }
     },
+
+    tooltip: {
+        enabled: true,
+        borderColor: 'gray',
+        borderRadius: 10,
+        formatter: function () {
+            return '🏎️' + ' ' + '<b>' + this.x + '</b><br/>' + 'Year: ' + this.point.z +
+                ' - ' + this.point.m;
+        }
+
+    },
+
+
     series: [{
+        color: '#FB2B11',
         name: 'Porsche 911',
-        data: [130, 282, 247, 296, 315, 355, 395, 379]
+        data: [
+            { y: 130, z: 1963, m: 1973 },
+            { y: 282, z: 1973, m: 1989 },
+            { y: 247, z: 1988, m: 1994 },
+            { y: 296, z: 1993, m: 1998 },
+            { y: 315, z: 1997, m: 2005 },
+            { y: 355, z: 2004, m: 2012 },
+            { y: 395, z: 2011, m: 2019 },
+            { y: 379, z: 2019, m: 2020 },]
     }],
 });
 
 
+Highcharts.chart('price', {
+    credits: {
+        enabled: false
+    },
+
+    legend: {
+    },
+
+    chart: {
+        height: 260,
+        type: 'line',
+        plotBorderWidth: null,
+        plotShadow: false,
+    },
+    title: {
+        text: 'Base Price in the US'
+    },
+    subtitle: {
+        text: '* price is converted by inflation calculator'
+    },
+    xAxis: {
+        title: {
+            text: 'Generations'
+        },
+        categories: ['901', '930', '964', '993', '996', '997', '991', '992']
+    },
+    yAxis: {
+        title: {
+            text: 'Price (thousand dollar)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return '$' + this.y + 'k';
+                },
+                style: {
+                    fontSize: '8px',
+                }
+            },
+            enableMouseTracking: true
+        }
+    },
+
+    tooltip: {
+        enabled: true,
+        borderColor: 'gray',
+        borderRadius: 10,
+        formatter: function () {
+            return 'Year: ' + this.point.z +
+                ' - ' + this.point.m;
+        }
+
+    },
 
 
+    series: [{
+        color: '#FB2B11',
+        name: 'Converted Price',
+        data: [
+            { y: 56, z: 1963, m: 1973 },
+            { y: 180, z: 1973, m: 1989 },
+            { y: 131, z: 1988, m: 1994 },
+            { y: 65, z: 1993, m: 1998 },
+            { y: 127, z: 1997, m: 2005 },
+            { y: 97, z: 2004, m: 2012 },
+            { y: 116, z: 2011, m: 2019 },
+            { y: 99, z: 2019, m: 2020 },]
+    },
+    {
+        color: '#57595D',
+        name: 'Original Price',
+        data: [
+            { y: 5, z: 1963, m: 1973 },
+            { y: 49, z: 1973, m: 1989 },
+            { y: 65, z: 1988, m: 1994 },
+            { y: 38, z: 1993, m: 1998 },
+            { y: 85, z: 1997, m: 2005 },
+            { y: 79, z: 2004, m: 2012 },
+            { y: 104, z: 2011, m: 2019 },
+            { y: 99, z: 2019, m: 2020 }
+
+        ]
+
+    }],
+});
+
+
+Highcharts.chart('sales', {
+    credits: {
+        enabled: false
+    },
+    legend:{
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+    chart: {
+        height: 260,
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Sales in the US',
+        margin: 0,
+    },
+    subtitle: {
+        text: '* sales of 901 not applicable',
+        margin: 0,
+    },
+    accessibility: {
+        point: {
+        }
+    },
+
+    plotOptions: {
+        pie: {
+            startAngle: 90,
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>:<br>{point.percentage:.1f} %',
+                
+                style: {
+                    textOutline: 'none',
+                    fontWeight: 'normal',
+                    color: 'white',
+                },
+            },
+            showInLegend: true
+        }
+    },
+    series: [{
+        name: 'Sales Amount',
+        data: [
+        {
+            name: '930',
+            y: 160,
+        },
+        {
+            name:'964',
+            y: 15446,
+        },
+        {
+            name:'993',
+            y: 23133,
+        },
+            {
+                color: '#FAC500',
+                name: '996',
+                y: 64614,
+            },
+            {
+                color: '#272121',
+                name: '997',
+                y: 61021,
+            },
+            {
+                color: '#FB2B11',
+                name: '991',
+                y: 66792,
+            },
+            {
+                name: '992',
+                y: 9265,
+            },
+    ]
+    }]
+});
