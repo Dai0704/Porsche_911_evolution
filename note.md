@@ -1,3 +1,8 @@
+#########                    THINGS THAT MAYBE I STILL NEED                      ##########
+
+#########                    SOME OLD VERSION STAFF                   #########
+
+
 body {
   font-family: "Lato", sans-serif;
 }
@@ -200,12 +205,6 @@ background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#2
 
 
 
-
-
-
-
-
-
  <div class='tdiv' style="overflow: hidden;">
                 <div style="float:left; width: 70%;">
                     <p class='mtitle'>Chapter 1: 901</p>
@@ -217,3 +216,45 @@ background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#2
                     </figure>
                 </div>
             </div>
+
+
+
+
+
+
+    <div class='bottom'>
+    </div>
+
+    <div class='hor'></div>
+    
+
+
+    .hor{
+border-top:1px solid white;
+position: fixed;
+  left: 0;
+  right:0;
+  width: 200px;
+  bottom: 80px;
+  margin-top: 5px;
+}
+
+
+.bottom{
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  bottom: 0;
+  width: 69.3%; 
+  z-index:1;
+}
+
+.bottom a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}

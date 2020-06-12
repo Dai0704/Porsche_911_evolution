@@ -6,6 +6,20 @@ body{
   background-color: black;
 }
 
+.showhim{
+  color:white;
+}
+.showme {
+  color: white;
+  display: none;
+}
+
+.showhim:hover .showme {
+  color: white;
+  display: block;
+}
+
+
 .vl {
   border-left: 1px solid white;
   position: absolute;
@@ -20,12 +34,9 @@ body{
 
 .main{
   background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 0px;
-  height: 100%;
+  padding: 16px;
   width: 69.9%; 
-  margin: 0;
-  padding: 0;
+  margin-bottom: 30px;
 }
 
 
