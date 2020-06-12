@@ -146,3 +146,74 @@ height: 100%;
   background-color: rgb(0, 0, 0);
   overflow-x: hidden;
   padding-top: 0px;
+
+
+
+  "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif
+
+
+  margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+
+body{
+background-color: rgb(0, 0, 0);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+
+
+background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+	background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
+	-webkit-background-size: 200px;
+	color: $text-color;
+	-webkit-background-clip: text;
+	-webkit-animation-name: shine;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-iteration-count: infinite;
+	text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+}
+
+@-webkit-keyframes shine {
+	0%, 10% {
+		background-position: -1000px;
+	}
+	20% {
+		background-position: top left;
+	}
+	90% {
+		background-position: top right;
+	}
+	100% {
+		background-position: 1000px;
+	}
+}
+
+
+
+
+
+
+
+
+
+ <div class='tdiv' style="overflow: hidden;">
+                <div style="float:left; width: 70%;">
+                    <p class='mtitle'>Chapter 1: 901</p>
+                </div>
+
+                <div style="float:right; width: 30%;">
+                    <figure class="highcharts-figure">
+                        <div id="container-speed" class="chart-container"></div>
+                    </figure>
+                </div>
+            </div>

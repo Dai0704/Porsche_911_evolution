@@ -302,7 +302,7 @@ Highcharts.chart('price', {
     },
     yAxis: {
         title: {
-            text: 'Price (thousand dollar)'
+            text: 'Price (k $)'
         }
     },
     plotOptions: {
@@ -392,7 +392,6 @@ Highcharts.chart('sales', {
         point: {
         }
     },
-
     plotOptions: {
         pie: {
             startAngle: 90,
@@ -411,16 +410,28 @@ Highcharts.chart('sales', {
             showInLegend: true
         }
     },
+    tooltip: {
+        enabled: true,
+        borderColor: 'gray',
+        borderRadius: 10,
+        formatter: function () {
+            return 'Sales: ' + this.y +'<br/>'+'Year: ' + this.point.z +
+                ' - ' + this.point.m;
+        }
+
+    },
     series: [{
         name: 'Sales Amount',
         data: [
         {
             name: '930',
             y: 160,
+                z: 1973, m: 1989
         },
         {
             name:'964',
             y: 15446,
+            z: 1988, m: 1994
         },
         {
             name:'993',
@@ -430,21 +441,556 @@ Highcharts.chart('sales', {
                 color: '#FAC500',
                 name: '996',
                 y: 64614,
+                z: 1993, m: 1998
             },
             {
                 color: '#272121',
                 name: '997',
                 y: 61021,
+                z: 1997, m: 2005
             },
             {
                 color: '#FB2B11',
                 name: '991',
                 y: 66792,
+                z: 2011, m: 2019
             },
             {
                 name: '992',
                 y: 9265,
+                z: 2019, m: 2020
             },
     ]
     }]
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var gaugeOptions = {
+    chart: {
+        type: 'solidgauge'
+    },
+
+    title: null,
+
+    pane: {
+        center: ['45%', '95%'],
+        size: '140%',
+        startAngle: -90,
+        endAngle: 90,
+        background: {
+            backgroundColor:
+                Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
+            innerRadius: '60%',
+            outerRadius: '100%',
+            shape: 'arc'
+        }
+    },
+
+    exporting: {
+        enabled: false
+    },
+
+    tooltip: {
+        enabled: false
+    },
+
+    // the value axis
+    yAxis: {
+        stops: [
+            [0.1, '#FAC500'], 
+            [0.5, '#FAC500'], 
+            [0.9, '#FB2B11']
+        ],
+        lineWidth: 0,
+        tickWidth: 0,
+        minorTickInterval: null,
+        tickAmount: 2,
+        title: {
+            y: -70
+        },
+        labels: {
+            y: 16
+        }
+    },
+
+    plotOptions: {
+        solidgauge: {
+            dataLabels: {
+                y: 5,
+                borderWidth: 0,
+                useHTML: true
+            }
+        }
+    }
+};
+
+// The speed gauge
+var chartSpeed1 = Highcharts.chart('container-speed1', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 200,
+        title: {
+            text: 'Max Speed'
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'Max Speed',
+        data: [130],
+        dataLabels: {
+            format:
+                '<div style="text-align:center">' +
+                '<span style="font-size:25px">{y}</span><br/>' +
+                '<span style="font-size:12px;opacity:0.4">mph</span>' +
+                '</div>'
+        },
+        tooltip: {
+            valueSuffix: ' mph'
+        }
+    }]
+
+}));
+
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+    const val1 = 130;
+    if (chartSpeed1) {
+        point = chartSpeed1.series[0].points[0];
+        newVal = point.y - 10;
+
+        if (newVal < val1 - 11) {
+            newVal = point.y + 5;
+        }
+
+        else {
+            newVal = point.y - 5;
+        }
+
+        point.update(newVal);
+    }
+
+}, 2000);
+
+
+var chartSpeed2 = Highcharts.chart('container-speed2', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 200,
+        title: {
+            text: 'Max Speed'
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'Max Speed',
+        data: [162],
+        dataLabels: {
+            format:
+                '<div style="text-align:center">' +
+                '<span style="font-size:25px">{y}</span><br/>' +
+                '<span style="font-size:12px;opacity:0.4">mph</span>' +
+                '</div>'
+        },
+        tooltip: {
+            valueSuffix: ' mph'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+    const val1 = 162;
+    if (chartSpeed2) {
+        point = chartSpeed2.series[0].points[0];
+        newVal = point.y - 10;
+
+        if (newVal < val1 - 11) {
+            newVal = point.y + 5;
+        }
+
+        else {
+            newVal = point.y - 5;
+        }
+
+        point.update(newVal);
+    }
+
+}, 2000);
+
+
+
+
+var chartSpeed3 = Highcharts.chart('container-speed3', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 200,
+        title: {
+            text: 'Max Speed'
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'Max Speed',
+        data: [164],
+        dataLabels: {
+            format:
+                '<div style="text-align:center">' +
+                '<span style="font-size:25px">{y}</span><br/>' +
+                '<span style="font-size:12px;opacity:0.4">mph</span>' +
+                '</div>'
+        },
+        tooltip: {
+            valueSuffix: ' mph'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+    const val1 = 164;
+    if (chartSpeed3) {
+        point = chartSpeed3.series[0].points[0];
+        newVal = point.y - 10;
+
+        if (newVal < val1 - 11) {
+            newVal = point.y + 5;
+        }
+
+        else {
+            newVal = point.y - 5;
+        }
+
+        point.update(newVal);
+    }
+
+}, 2000);
+
+
+
+
+var chartSpeed4 = Highcharts.chart('container-speed4', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 200,
+        title: {
+            text: 'Max Speed'
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'Max Speed',
+        data: [168],
+        dataLabels: {
+            format:
+                '<div style="text-align:center">' +
+                '<span style="font-size:25px">{y}</span><br/>' +
+                '<span style="font-size:12px;opacity:0.4">mph</span>' +
+                '</div>'
+        },
+        tooltip: {
+            valueSuffix: ' mph'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+    const val1 = 168;
+    if (chartSpeed4) {
+        point = chartSpeed4.series[0].points[0];
+        newVal = point.y - 10;
+
+        if (newVal < val1 - 11) {
+            newVal = point.y + 5;
+        }
+
+        else {
+            newVal = point.y - 5;
+        }
+
+        point.update(newVal);
+    }
+
+}, 2000);
+
+
+
+var chartSpeed5 = Highcharts.chart('container-speed5', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 200,
+        title: {
+            text: 'Max Speed'
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'Max Speed',
+        data: [176],
+        dataLabels: {
+            format:
+                '<div style="text-align:center">' +
+                '<span style="font-size:25px">{y}</span><br/>' +
+                '<span style="font-size:12px;opacity:0.4">mph</span>' +
+                '</div>'
+        },
+        tooltip: {
+            valueSuffix: ' mph'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+    const val1 = 176;
+    if (chartSpeed5) {
+        point = chartSpeed5.series[0].points[0];
+        newVal = point.y - 10;
+
+        if (newVal < val1 - 11) {
+            newVal = point.y + 5;
+        }
+
+        else {
+            newVal = point.y - 5;
+        }
+
+        point.update(newVal);
+    }
+
+}, 2000);
+
+
+
+var chartSpeed6 = Highcharts.chart('container-speed6', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 200,
+        title: {
+            text: 'Max Speed'
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'Max Speed',
+        data: [180],
+        dataLabels: {
+            format:
+                '<div style="text-align:center">' +
+                '<span style="font-size:25px">{y}</span><br/>' +
+                '<span style="font-size:12px;opacity:0.4">mph</span>' +
+                '</div>'
+        },
+        tooltip: {
+            valueSuffix: ' mph'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+    const val1 = 180;
+    if (chartSpeed6) {
+        point = chartSpeed6.series[0].points[0];
+        newVal = point.y - 10;
+
+        if (newVal < val1 - 11) {
+            newVal = point.y + 5;
+        }
+
+        else {
+            newVal = point.y - 5;
+        }
+
+        point.update(newVal);
+    }
+
+}, 2000);
+
+
+
+var chartSpeed7 = Highcharts.chart('container-speed7', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 200,
+        title: {
+            text: 'Max Speed'
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'Max Speed',
+        data: [190],
+        dataLabels: {
+            format:
+                '<div style="text-align:center">' +
+                '<span style="font-size:25px">{y}</span><br/>' +
+                '<span style="font-size:12px;opacity:0.4">mph</span>' +
+                '</div>'
+        },
+        tooltip: {
+            valueSuffix: ' mph'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+    const val1 = 190;
+    if (chartSpeed7) {
+        point = chartSpeed7.series[0].points[0];
+        newVal = point.y - 10;
+
+        if (newVal < val1 - 11) {
+            newVal = point.y + 5;
+        }
+
+        else {
+            newVal = point.y - 5;
+        }
+
+        point.update(newVal);
+    }
+
+}, 2000);
+
+
+var chartSpeed8 = Highcharts.chart('container-speed8', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 200,
+        title: {
+            text: 'Max Speed'
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'Max Speed',
+        data: [182],
+        dataLabels: {
+            format:
+                '<div style="text-align:center">' +
+                '<span style="font-size:25px">{y}</span><br/>' +
+                '<span style="font-size:12px;opacity:0.4">mph</span>' +
+                '</div>'
+        },
+        tooltip: {
+            valueSuffix: ' mph'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+    const val1 = 182;
+    if (chartSpeed8) {
+        point = chartSpeed8.series[0].points[0];
+        newVal = point.y - 10;
+
+        if (newVal < val1 - 11) {
+            newVal = point.y + 5;
+        }
+
+        else {
+            newVal = point.y - 5;
+        }
+
+        point.update(newVal);
+    }
+
+}, 2000);
